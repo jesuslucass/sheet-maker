@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sheet Maker</title>
+    <script src="https://kit.fontawesome.com/fad080428c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="src/main.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <i class="fas fa-dice-d20"></i>
+        <h1>Welcome to <strong>Sheet Maker!</strong></h1>
+        <i class="fas fa-dice-d20"></i>
+    </header>
+    <main class="main">
+        <button class="add"><i class="fas fa-plus-circle"></i> Add Character</button>
+    </main>
+    <section class="chardisplay">
+        <!-- 
+            Name: Gustav 
+            Race: Humano 
+            Class: Barbarian, Bard, Rogue, Wizard, Paladin 
+            Level: 3
+            Atributes{
+                Strenght: 
+                Dexterity:
+                Constitution: 
+                Inteligence:
+                Wisdom: 
+                Charisma: 
+            }
+         -->
+        <form action="" class="charcontent">
+            <h1 class="charcriation">Character Criation!</h1>
+            <h2 class="division">Character Information</h2>
+            <div class="charitem"><input type="text" class="charinput"><label for="name" class="charlabel">Name </label></div>
+            <div class="charitem"><input type="text" class="charinput"><label for="" class="charlabel">Race</label></div>
+            <div class="charitem"><select name="class" class="charinput" ><option value="-">-</option><option value="Barbarian">Barbarian</option><option value="Bard">Bard</option><option value="Rogue">Rogue</option><option value="Wizard">Wizard</option><option value="Paladin">Paladin</option></select><label for="" class="charlabel">Class</label></div>
+            <div class="charitem"><input type="number" min="0" max="20" class="charinput"><label for="" class="charlabel">Level</label></div>
+            <h2 class="division">Atributes</h2>
+            <div class="charitem"><input type="number" min="0" max="50" class="charinput"><label for="" class="charlabel">Strenght</label></div>
+            <div class="charitem"><input type="number" min="0" max="50" class="charinput"><label for="" class="charlabel">Dexterity</label></div>
+            <div class="charitem"><input type="number" min="0" max="50" class="charinput"><label for="" class="charlabel">Constitution</label></div>
+            <div class="charitem"><input type="number" min="0" max="50" class="charinput"><label for="" class="charlabel">Inteligence</label></div>
+            <div class="charitem"><input type="number" min="0" max="50" class="charinput"><label for="" class="charlabel">Wisdom</label></div>
+            <div class="charitem"><input type="number" min="0" max="50" class="charinput"><label for="" class="charlabel">Charisma</label></div>
+            <div class="buttons">
+                <button class="cancel btn">Cancel</button>
+                <button class="create btn">Create</button>
+                
+            
+        </form>
+    </section>
+    <div class="cards">
+        <!-- <div class="card">
+            <img class="charimg" src="img/wizard.jpg" alt="Wizard">
+            <h1 class="charname">Gustav Ludwig</h1>
+            <div class="specif">
+                <h2 class="charspecif">Humano</h2>
+                <h2 class="charspecif">Mago</h2>
+                <h2 class="charspecif">Level: 3</h2>
+            </div>
+            <p class="atributes">Strenght: 14</p>
+            <p class="atributes">Dexterity: 13</p>
+            <p class="atributes">Constitution: 15</p>
+            <p class="atributes">Inteligence: 18</p>
+            <p class="atributes">Wisdom: 17</p>
+            <p class="atributes">Charisma: 14</p>
+
+        </div> -->
+    </div>
+</body>
+</html>
