@@ -4,21 +4,35 @@ addBtn = document.querySelector('.add')
 createBtn = document.querySelector('.create')
 cancelBtn = document.querySelector('.cancel')
 char = document.querySelectorAll('.charinput')
+namelist = []
 // console.log(localStorage.getItem('@sheet'))
+console.log(char)
 function getSheet(){
-    const items = localStorage.getItem('@sheet')
-    div = items.split(',')
-    var name = div[0]
-    var race = div[1]
-    var clase = div[2]
-    var level = div[3]
-    var str = div[4]
-    var dex = div[5]
-    var con = div[6]
-    var int = div[7]
-    var wis = div[8]
-    var cari = div[9]
-    buildCard(name, race, clase, level, str, dex, con, int, wis, cari)
+    list = localStorage.getItem('namelist')
+    // list ? namelist = list.split(','):return
+    
+    if (list!=null){
+        namelist = list.split(',')
+        for(var i = 0; i < namelist.length; i++){
+            const items = localStorage.getItem(namelist[i])
+            div = items.split(',')
+            var name = div[0]
+            var race = div[1]
+            var clase = div[2]
+            var level = div[3]
+            var str = div[4]
+            var dex = div[5]
+            var con = div[6]
+            var int = div[7]
+            var wis = div[8]
+            var cari = div[9]
+            buildCard(name, race, clase, level, str, dex, con, int, wis, cari)
+        }
+    }
+    else{
+        return
+    }
+    
 }
 getSheet()
 addBtn.addEventListener('click', ()=>{modal.style.display = 'flex'})
@@ -49,7 +63,9 @@ function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
 }
 function keep(itemlist){
     
-    localStorage.setItem('@sheet', itemlist)
+    localStorage.setItem(itemlist[0], itemlist)
+    namelist.push(itemlist[0])
+    localStorage.setItem('namelist', namelist)
 
 
 }
