@@ -46,7 +46,9 @@ function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
     cards = document.querySelector('.cards')
     card = document.createElement('div')
     card.classList.add('card')
-    card.innerHTML = `<img class="charimg" src="img/${clase}.jpg" alt="${clase}">
+    card.innerHTML = `
+    <i class="fas fa-trash"></i>
+    <img class="charimg" src="img/${clase}.jpg" alt="${clase}">
     <h1 class="charname">${name}</h1>
     <div class="specif">
         <h2 class="charspecif">${race}</h2>

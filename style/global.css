@@ -243,3 +243,13 @@ header > i{
     font-weight: 700;
     margin: 10px;
 }
+.fa-trash{
+    margin-left: 80%;
+    color: var(--light-grey);
+    cursor: pointer;
+    font-size: 22px;
+    transition: color .3s ease-out;
+}
+.fa-trash:hover{
+    color: var(--dark-grey);
+}
