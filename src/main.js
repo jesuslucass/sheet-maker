@@ -11,7 +11,6 @@ console.log(char)
 function getSheet(){
     list = localStorage.getItem('namelist')
     // list ? namelist = list.split(','):return
-    
     if (list!=null){
         namelist = list.split(',')
         for(var i = 0; i < namelist.length; i++){
