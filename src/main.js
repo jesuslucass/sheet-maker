@@ -35,6 +35,13 @@ function getSheet(){
     
 }
 getSheet()
+clearBtn = document.querySelectorAll('.fa-trash')
+function funcaodoida(oi){
+    oi.parentElement.remove()
+    localStorage.removeItem(oi.id)
+    namelist.splice(namelist.indexOf(oi.id), 1)
+    localStorage.setItem('namelist', namelist)
+}
 addBtn.addEventListener('click', ()=>{modal.style.display = 'flex'})
 cancelBtn.addEventListener('click', (event)=>{
     event.preventDefault()
@@ -43,11 +50,12 @@ cancelBtn.addEventListener('click', (event)=>{
 })
 function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
     //const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari]
+    
     cards = document.querySelector('.cards')
     card = document.createElement('div')
     card.classList.add('card')
     card.innerHTML = `
-    <i class="fas fa-trash"></i>
+    <i onclick="funcaodoida(this)" id=${name} class="fas fa-trash"></i>
     <img class="charimg" src="img/${clase}.jpg" alt="${clase}">
     <h1 class="charname">${name}</h1>
     <div class="specif">
@@ -61,6 +69,7 @@ function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
     <p class="atributes">Inteligence: ${int}</p>
     <p class="atributes">Wisdom: ${wis}</p>
     <p class="atributes">Charisma: ${cari}</p>`
+
     cards.appendChild(card)
 }
 function keep(itemlist){
