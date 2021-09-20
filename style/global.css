@@ -9,6 +9,7 @@
 body{
     background-color: var(--dark-grey);
     font-family: "Rubik", sans-serif;
+
     
 }
 .header{
@@ -46,8 +47,10 @@ header > i{
 	align-items: center;
     display: none;
     padding-top: 20px;
+    height: fit-content;
     
 }
+
 .charcontent{
     display: flex;
     flex-direction: column;
@@ -203,7 +206,8 @@ header > i{
 }
 .cards{
     display: flex;
-    max-width: 1300px;
+    flex-wrap: wrap;
+    
 }
 .card{
     display: flex;
@@ -238,10 +242,19 @@ header > i{
     font-weight: 700;
     font-size: 18px;
 }
+.display-atributs{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 .atributes{
     color: var(--light-grey);
     font-weight: 700;
     margin: 10px;
+}
+.modify{
+    color: #c0bbc5;
+    font-weight: 700;
 }
 .fa-trash{
     margin-left: 80%;

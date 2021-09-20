@@ -4,6 +4,7 @@ addBtn = document.querySelector('.add')
 createBtn = document.querySelector('.create')
 cancelBtn = document.querySelector('.cancel')
 char = document.querySelectorAll('.charinput')
+// 0-1: -5, 2-3: -4, 4-5: -3, 6-7: -2, 8-9: -1, 10-11: 0, 12-13: 1, 14- 15: 2
 namelist = []
 // console.log(localStorage.getItem('@sheet'))
 console.log(char)
@@ -48,6 +49,26 @@ cancelBtn.addEventListener('click', (event)=>{
     modal.style.display = 'none'
     formulario.reset()
 })
+function modify(atrib){
+    cont = 0
+    modi = -5
+    operador = ''
+    if(cont === atrib || cont+1 === atrib){
+        return `(${modi})`
+    }  else{
+        while(cont!=atrib){
+            cont++
+            modi+=0.5
+            
+        }
+        arredondado = Math.floor(modi)
+        if (arredondado>0){operador='+'}
+        return `${operador}${arredondado}`
+    }
+    
+    
+    
+}
 function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
     //const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari]
     
@@ -63,12 +84,12 @@ function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
         <h2 class="charspecif">${clase}</h2>
         <h2 class="charspecif">Level: ${level}</h2>
     </div>
-    <p class="atributes">Strenght: ${str}</p>
-    <p class="atributes">Dexterity: ${dex}</p>
-    <p class="atributes">Constitution: ${con}</p>
-    <p class="atributes">Inteligence: ${int}</p>
-    <p class="atributes">Wisdom: ${wis}</p>
-    <p class="atributes">Charisma: ${cari}</p>`
+    <div class='display-atributs'><p class="atributes">Constitution: ${con}</p> <span class="modify">${modify(con)}</span></div>
+    <div class='display-atributs'><p class="atributes">Dexterity: ${dex}</p> <span class="modify">${modify(dex)}</span></div>
+    <div class='display-atributs'><p class="atributes">Strenght: ${str}</p> <span class="modify">${modify(str)}</span></div>
+    <div class='display-atributs'><p class="atributes">Inteligence: ${int}</p> <span class="modify">${modify(int)}</span></div>
+    <div class='display-atributs'><p class="atributes">Wisdom: ${wis}</p> <span class="modify">${modify(wis)}</span></div>
+    <div class='display-atributs'><p class="atributes">Charisma: ${cari} </p><span class="modify">${modify(cari)}</span></div>`
 
     cards.appendChild(card)
 }
