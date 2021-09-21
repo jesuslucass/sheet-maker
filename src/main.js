@@ -4,6 +4,9 @@ addBtn = document.querySelector('.add')
 createBtn = document.querySelector('.create')
 cancelBtn = document.querySelector('.cancel')
 char = document.querySelectorAll('.charinput')
+confirmNo = document.querySelector('.no')
+confirmYes = document.querySelector('.yes')
+confirmDisplay = document.querySelector('.confirmdisplay')
 // 0-1: -5, 2-3: -4, 4-5: -3, 6-7: -2, 8-9: -1, 10-11: 0, 12-13: 1, 14- 15: 2
 namelist = []
 // console.log(localStorage.getItem('@sheet'))
@@ -36,11 +39,38 @@ function getSheet(){
 }
 getSheet()
 clearBtn = document.querySelectorAll('.fa-trash')
+// function confirm(){
+//     var result = 0
+    
+    
+//     })
+//     return result
+// }
 function funcaodoida(oi){
-    oi.parentElement.remove()
-    localStorage.removeItem(oi.id)
-    namelist.splice(namelist.indexOf(oi.id), 1)
-    localStorage.setItem('namelist', namelist)
+    confirmDisplay.style.display = 'flex'
+    confirmNo.addEventListener('click', nao)
+    confirmYes.addEventListener('click', sim)
+    
+    function nao(){
+        confirmDisplay.style.display = 'none'
+        var result = 2
+        return result
+    }
+    function sim(){
+        confirmDisplay.style.display = 'none'
+        var result = 1
+        return result
+    }
+    console.log(sim())
+    if(sim === 1){
+        oi.parentElement.remove()
+        localStorage.removeItem(oi.id)
+        namelist.splice(namelist.indexOf(oi.id), 1)
+        localStorage.setItem('namelist', namelist)
+    } else if (nao === 2){
+        confirmDisplay.style.display = 'none'
+        return
+    }
 }
 addBtn.addEventListener('click', ()=>{modal.style.display = 'flex'})
 cancelBtn.addEventListener('click', (event)=>{
