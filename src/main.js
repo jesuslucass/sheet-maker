@@ -7,6 +7,7 @@ char = document.querySelectorAll('.charinput')
 confirmDisplay = document.querySelector('.confirmdisplay')
 // 0-1: -5, 2-3: -4, 4-5: -3, 6-7: -2, 8-9: -1, 10-11: 0, 12-13: 1, 14- 15: 2
 namelist = []
+img = document.querySelector("#img")
 var trashId = ''
 // console.log(localStorage.getItem('@sheet'))
 console.log(char)
@@ -14,7 +15,7 @@ function getSheet(){
     list = localStorage.getItem('namelist')
     // list ? namelist = list.split(','):return
     
-    if (list!=null){
+    if (list!=null && list!=''){
         namelist = list.split(',')
         for(var i = 0; i < namelist.length; i++){
             const items = localStorage.getItem(namelist[i])
@@ -83,7 +84,7 @@ function modify(atrib){
 }
 function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
     //const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari]
-    
+    console.log(img.value)
     cards = document.querySelector('.cards')
     card = document.createElement('div')
     card.classList.add('card')
