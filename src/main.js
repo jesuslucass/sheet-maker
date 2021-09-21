@@ -1,3 +1,4 @@
+// -------- Variáveis ----------
 modal = document.querySelector('.chardisplay')
 formulario = document.querySelector('form')
 addBtn = document.querySelector('.add')
@@ -5,16 +6,15 @@ createBtn = document.querySelector('.create')
 cancelBtn = document.querySelector('.cancel')
 char = document.querySelectorAll('.charinput')
 confirmDisplay = document.querySelector('.confirmdisplay')
-// 0-1: -5, 2-3: -4, 4-5: -3, 6-7: -2, 8-9: -1, 10-11: 0, 12-13: 1, 14- 15: 2
 namelist = []
 img = document.querySelector("#img")
+clearBtn = document.querySelectorAll('.fa-trash')
 var trashId = ''
-// console.log(localStorage.getItem('@sheet'))
-console.log(char)
+//---------------------------------------------------------------
+// -------- Funções ----------
 function getSheet(){
     list = localStorage.getItem('namelist')
-    // list ? namelist = list.split(','):return
-    
+  
     if (list!=null && list!=''){
         namelist = list.split(',')
         for(var i = 0; i < namelist.length; i++){
@@ -39,8 +39,6 @@ function getSheet(){
     }
     
 }
-getSheet()
-clearBtn = document.querySelectorAll('.fa-trash')
 function openDisplay(ola){
     confirmDisplay.style.display = 'flex'
     return trashId = ola
@@ -56,12 +54,6 @@ function funcaodoida(){
     localStorage.setItem('namelist', namelist)
     confirmDisplay.style.display = 'none'
 }
-addBtn.addEventListener('click', ()=>{modal.style.display = 'flex'})
-cancelBtn.addEventListener('click', (event)=>{
-    event.preventDefault()
-    modal.style.display = 'none'
-    formulario.reset()
-})
 function modify(atrib){
     cont = 0
     modi = -5
@@ -77,10 +69,7 @@ function modify(atrib){
         arredondado = Math.floor(modi)
         if (arredondado>0){operador='+'}
         return `${operador}${arredondado}`
-    }
-    
-    
-    
+    }  
 }
 function buildCard(name, race, clase, level, str, dex, con, int, wis, cari, imagem){
     //const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari]
@@ -115,7 +104,15 @@ function keep(itemlist){
 
 
 }
-
+getSheet()
+//---------------------------------------------------------------
+// -------- Escutadores ----------
+addBtn.addEventListener('click', ()=>{modal.style.display = 'flex'})
+cancelBtn.addEventListener('click', (event)=>{
+    event.preventDefault()
+    modal.style.display = 'none'
+    formulario.reset()
+})
 createBtn.addEventListener('click', (event)=>{
     event.preventDefault()
     var name = char[0].value
@@ -136,3 +133,4 @@ createBtn.addEventListener('click', (event)=>{
     keep(itemlist)
     formulario.reset()
 })
+//---------------------------------------------------------------
