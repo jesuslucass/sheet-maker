@@ -30,7 +30,8 @@ function getSheet(){
             var int = div[7]
             var wis = div[8]
             var cari = div[9]
-            buildCard(name, race, clase, level, str, dex, con, int, wis, cari)
+            var imagem = div[10]
+            buildCard(name, race, clase, level, str, dex, con, int, wis, cari, imagem)
         }
     }
     else{
@@ -49,7 +50,6 @@ function closeDisplay(){
 
 }
 function funcaodoida(){
-    console.log(trashId)
     trashId.parentElement.remove()
     localStorage.removeItem(trashId.id)
     namelist.splice(namelist.indexOf(trashId.id), 1)
@@ -82,15 +82,16 @@ function modify(atrib){
     
     
 }
-function buildCard(name, race, clase, level, str, dex, con, int, wis, cari){
+function buildCard(name, race, clase, level, str, dex, con, int, wis, cari, imagem){
     //const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari]
-    console.log(img.value)
+    
+    console.log(imagem)
     cards = document.querySelector('.cards')
     card = document.createElement('div')
     card.classList.add('card')
     card.innerHTML = `
     <i onclick="openDisplay(this)" id=${name} class="fas fa-trash"></i>
-    <img class="charimg" src="img/${clase}.jpg" alt="${clase}">
+    <img class="charimg" src="..\\Downloads\\${imagem}".jpg" alt="${clase}">
     <h1 class="charname">${name}</h1>
     <div class="specif">
         <h2 class="charspecif">${race}</h2>
@@ -127,9 +128,11 @@ createBtn.addEventListener('click', (event)=>{
     var int = char[7].value
     var wis = char[8].value
     var cari = char[9].value
-    const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari]
+    imagemDivision = img.value.split('\\')
+    imagem = imagemDivision[2]
+    const itemlist = [name, race, clase, level, str, dex, con, int, wis, cari, imagem]
     modal.style.display = 'none'
-    buildCard(name, race, clase, level, str, dex, con, int, wis, cari)
+    buildCard(name, race, clase, level, str, dex, con, int, wis, cari, imagem)
     keep(itemlist)
     formulario.reset()
 })

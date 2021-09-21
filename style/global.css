@@ -63,7 +63,7 @@ header > i{
 	align-items: center;
     padding-top: 20px;
     display: none;
-
+    
 }
 .confirmcontent{
     display: flex;
@@ -331,4 +331,10 @@ header > i{
 }
 .fa-trash:hover{
     color: var(--dark-grey);
+}
+#img{
+    color: var(--dark-grey);
+    font-style: italic;
+    font-size: 18px;
+    margin: 10px;
 }
